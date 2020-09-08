@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 924.0
+margin_bottom = 500.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 924.0
+margin_bottom = 20.0
+
+[node name="GotoQuadtree" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 305.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Quadtree"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 309.0
+margin_right = 614.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 618.0
+margin_right = 924.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Exit"
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/GotoQuadtree" to="." method="_on_GotoQuadtree_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
