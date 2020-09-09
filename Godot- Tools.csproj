@@ -57,6 +57,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addons\MST\MST.cs" />
     <Compile Include="new_script.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quadtree.cs" />

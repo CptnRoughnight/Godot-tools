@@ -26,7 +26,7 @@ window/stretch/mode="2d"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Quadtree" )
+enabled=PoolStringArray( "MST", "Quadtree" )
 
 [input]
 

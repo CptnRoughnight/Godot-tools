@@ -32,11 +32,12 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Quadtree"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="GotoMSTDemo" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 309.0
 margin_right = 614.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+text = "MST"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 618.0
@@ -45,4 +46,5 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Exit"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/GotoQuadtree" to="." method="_on_GotoQuadtree_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/GotoMSTDemo" to="." method="_on_GotoMSTDemo_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]

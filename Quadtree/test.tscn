@@ -12,6 +12,7 @@ script = ExtResource( 3 )
 subDivideThreshold = 16
 DrawLines = true
 updateQuadtree = true
+TestRect = Rect2( 100, 100, 120, 120 )
 
 [node name="Node2D" parent="Quadtree" instance=ExtResource( 2 )]
 
@@ -143,6 +144,16 @@ position = Vector2( 528.596, 499.23 )
 [node name="Label" type="Label" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="foundNodes" type="Label" parent="CanvasLayer"]
+margin_left = 2.0
+margin_top = 22.0
+margin_right = 42.0
+margin_bottom = 36.0
+text = "nodes in testrect :"
 __meta__ = {
 "_edit_use_anchors_": false
 }

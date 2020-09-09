@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/MST/MST.cs" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://MST/MSTDemo.gd" type="Script" id=3]
+
+[node name="MSTDemo" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AddRandom" type="Button" parent="CanvasLayer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 143.0
+margin_bottom = 70.0
+text = "Add Random"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RandomStart" type="Button" parent="CanvasLayer"]
+margin_left = 170.11
+margin_top = 51.1892
+margin_right = 263.11
+margin_bottom = 71.1892
+text = "Random Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MST" type="Node2D" parent="."]
+script = ExtResource( 1 )
+DrawLines = true
+StartPoint = NodePath("icon")
+
+[node name="icon" type="Sprite" parent="MST"]
+position = Vector2( 541.855, 216.06 )
+texture = ExtResource( 2 )
+
+[node name="icon2" type="Sprite" parent="MST"]
+position = Vector2( 252.467, 526.521 )
+texture = ExtResource( 2 )
+
+[node name="icon7" type="Sprite" parent="MST"]
+position = Vector2( 661.341, 133.948 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="CanvasLayer/AddRandom" to="." method="_on_AddRandom_pressed"]
+[connection signal="pressed" from="CanvasLayer/RandomStart" to="." method="_on_RandomStart_pressed"]
