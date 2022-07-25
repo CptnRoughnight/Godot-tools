@@ -6,9 +6,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -45,6 +42,18 @@ margin_right = 924.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Exit"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 924.0
+margin_bottom = 44.0
+
+[node name="WfC" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 164.0
+margin_bottom = 20.0
+text = "Wave Function Collapse"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/GotoQuadtree" to="." method="_on_GotoQuadtree_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/GotoMSTDemo" to="." method="_on_GotoMSTDemo_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/WfC" to="." method="_on_WfC_pressed"]
