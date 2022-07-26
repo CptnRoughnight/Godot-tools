@@ -15,14 +15,8 @@ public class wfc2d : Node2D
     private Camera camera;
 
     /**************************************** Modules */
-    private Texture sprPath = (Texture)ResourceLoader.Load("res://wfc/path1.png");
-    private Texture sprDirt = (Texture)ResourceLoader.Load("res://wfc/dirt_patch.png");
-    private Texture sprPath2 = (Texture)ResourceLoader.Load("res://wfc/path2.png");
 
-    private Texture sprcdr = (Texture)ResourceLoader.Load("res://wfc/cdr.png");
-    private Texture sprcld = (Texture)ResourceLoader.Load("res://wfc/cld.png");
-    private Texture sprclu = (Texture)ResourceLoader.Load("res://wfc/clu.png");
-    private Texture sprcur = (Texture)ResourceLoader.Load("res://wfc/cur.png");
+    private List<Texture> textures;
 
     /**************************************** Const */
 
@@ -39,9 +33,23 @@ public class wfc2d : Node2D
 
 
     private RandomNumberGenerator rng;
-    private Vector2 walker;
     private List<Vector2> lowEntropyList;
-    private int passes;
+
+
+    private void LoadTextures()
+    {
+        textures = new List<Texture>();
+
+        //************ Match the order to the TILE2D enum!
+
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/path1.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/dirt_patch.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/path2.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/cdr.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/cld.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/clu.png"));
+        textures.Add((Texture)ResourceLoader.Load("res://wfc/cur.png"));
+    }
 
     public override void _Ready()
     {
@@ -52,6 +60,8 @@ public class wfc2d : Node2D
         grid = new WfcTile2D[GridSize, GridSize];
         standardGrid = new WfcTile2D[GridSize, GridSize];
         newGrid = new WfcTile2D[GridSize, GridSize];
+
+        LoadTextures();
 
         for (int i = 0; i < GridSize; i++)
             for (int j = 0; j < GridSize; j++)
@@ -65,7 +75,6 @@ public class wfc2d : Node2D
 
         
         lowEntropyList = new List<Vector2>();
-        passes = 0;
 
         grid[0, 0].collapse(rng);
         
@@ -249,41 +258,8 @@ public class wfc2d : Node2D
         Sprite instance = null;
         if (grid[(int)walker.x,(int)walker.y].collapsed)
         {
-            switch (grid[(int)walker.x, (int)walker.y].Mesh)
-            {
-                case TILE2D.Path:
-                    instance = new Sprite();
-                    instance.Texture = sprPath;
-                    break;
-                case TILE2D.Dirt:
-                    instance = new Sprite();
-                    instance.Texture = sprDirt;
-                    break;
-                case TILE2D.Path2:
-                    instance = new Sprite();
-                    instance.Texture = sprPath2;
-                    break;
-                case TILE2D.cdr:
-                    instance = new Sprite();
-                    instance.Texture = sprcdr;
-                    break;
-                case TILE2D.cld:
-                    instance = new Sprite();
-                    instance.Texture = sprcld;
-                    break;
-                case TILE2D.clu:
-                    instance = new Sprite();
-                    instance.Texture = sprclu;
-                    break;
-                case TILE2D.cur:
-                    instance = new Sprite();
-                    instance.Texture = sprcur;
-                    break;
-                default:
-                    instance = null;
-                    break;
-
-            }
+            instance = new Sprite();
+            instance.Texture = textures[(int)(grid[ (int)(walker.x),(int)(walker.y) ].Mesh ) ];
             if (instance == null)
                 return;
             AddChild(instance);

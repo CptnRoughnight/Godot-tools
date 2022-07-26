@@ -64,10 +64,10 @@ public class MST : Node2D
 				for (int unVisitedIndex=0;unVisitedIndex<pointList.Count;unVisitedIndex++)
 				{
 					// Abstand berechnen
-					if (result[visitedIndex].DirectionTo(pointList[unVisitedIndex].GlobalPosition).Length()<minDist)
+					if (result[visitedIndex].DistanceTo(pointList[unVisitedIndex].GlobalPosition)<minDist)
 					{
 						// Neues Minimun -> alles abspeichern
-						minDist = result[visitedIndex].DirectionTo(pointList[unVisitedIndex].GlobalPosition).Length();
+						minDist = result[visitedIndex].DistanceTo(pointList[unVisitedIndex].GlobalPosition);
 						min_visited = visitedIndex;
 						min_point = unVisitedIndex;
 					}

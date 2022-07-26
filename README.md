@@ -13,3 +13,5 @@ You can get a list of nodes in a certain rect by using $Quadtree.returnNodeList(
 The MST-Node gives you a minimum spanning tree from the nodes under the MST-node.
 Get the Path-List (Vector2) by using $MST.getMST()
 
+### WFC
+Wave Function Collapse Algo, inspired by "The coding Train"
